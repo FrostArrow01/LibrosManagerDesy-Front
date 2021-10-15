@@ -1,3 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
-@import 'tippy.js/dist/tippy.css';
+@charset "UTF-8";
+
+/* ==========================================================================
+   styles.css
+   ========================================================================== */
+
+/* import desy_team styles */
 @import 'desy-frontend/src/css/styles.css';
+@import 'tippy.js/dist/tippy.css';
