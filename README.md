@@ -1,45 +1,101 @@
-# Welcome to desy-angular-starter 👋
+# desy-angular-starter
 ![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
 ![Prerequisite](https://img.shields.io/badge/npm-%3E%3D6.14.0-blue.svg)
 ![Prerequisite](https://img.shields.io/badge/node-%3E%3D12.18.0-blue.svg)
 [![License: EUPL--1.2](https://img.shields.io/badge/License-EUPL--1.2-yellow.svg)](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12)
 
-> desy-angular-starter is a starter project to build user interfaces for Gobierno de Aragón government webapps, using desy-angular npm package as dependecy.
+> desy-angular-starter is a boilerplate project to build webapps for 
+> Gobierno de Aragón government, using desy-angular npm package as dependecy.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.0.
+## Purpose
+desy-angular-starter provides a ready-to-use base project to start building new
+angular webapps using design system (DESY) through desy-angular npm package.
 
+## What is it based on?
+The project is based on desy-angular library, which in turn is based on the
+desy-frontend library. Both libraries are published in the npm repository:
+* [desy-angular](https://www.npmjs.com/package/desy-angular)
+* [desy-frontend](https://www.npmjs.com/package/desy-frontend)
 
-### 🏠 [Homepage](https://desy.aragon.es/desy-angular)
+## Get started
+1. Create a new project based on desy-angular-starter
+    * Bitbucket
+      1. Go to https://bitbucket.org/sdaragon/desy-angular-starter/
+      2. Click on the [...] icon on the top menu and select "Fork this repository"
+      3. Choose your workspace, project and name to create your new repository
+    * Github
+      1. Go to https://github.com/new and create your new repository
+      2. On the next page, click on "Import code" 
+      3. Copy the desy-angular-starter project URL 
+         ``https://bitbucket.org/sdaragon/desy-angular-starter/``
+         and paste it on the form 
+      4. Click on "Begin import"
+    * Local repository
+      1. Clone desy-angular-starter with your new project name
+          ```sh
+          git clone https://bitbucket.org/sdaragon/desy-angular-starter.git your-project-name
+          ```
+2. Clone it
+    * Bitbucket: ``git clone https://bitbucket.org/your-workspace/your-project.git``
+    * Github: ``git clone https://github.com/your-workspace/your-project.git``
+2. Install dependencies
+    ```sh
+    npm install
+    ```
+3. Run development server
+    ```sh
+    npm run start
+    ```
+4. Clean the placeholder content from ``app.component.html`` to get started with
+   your own content
 
-## Prerequisites
+## FAQ
 
-- npm >=6.14.0
-- node >=12.18.0
-
-## Install
-
-```sh
-npm install
+### How to add a component?
+If desy-angular module (or the sub-module you are interested in) is imported in
+your module, you can use its components directly in your templates.
+Every desy-angular component is prefixed by "desy". For example:
+```html
+<desy-button [id]="'example'">Click me</desy-button> 
 ```
 
-## Development server
+### Where to find component examples to build my app?
+In desy-angular documentation you can find some usage examples of every
+component:
+https://paega2.atlassian.net/wiki/spaces/AreaUsuariosIntegradores/pages/2996699584/desy-angular
 
-Run `ng serve` or `npm run serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Build
-
-Run `ng build` or `npm run build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Author
-
-👤 **Desy (SDA Servicios Digitales de Aragón)**
+In addition, there is a demo website where you can see every component in action and
+modify its properties dynamically: https://desy.aragon.es/desy-angular
 
 
-## Show your support
+### How to write a desy-frontend example with desy-angular?
+Every component in desy-frontend has its corresponding component in desy-angular,
+so you can create very similar structures in desy-frontend than in desy-angular.
+For example, the following tooltip component from [desy-frontend examples](https://desy.aragon.es/examples-spinner.html):
+```html
+{% from "components/spinner/_macro.spinner.njk" import componentSpinner %}
+{{ componentSpinner({
+    "classes": "text-primary-base"
+})  }}
+```
+could be written with desy-angular as follows:
+```html
+<desy-spinner [classes]="'text-primary-base'"></desy-spinner >
+```
+In this example, desy-angular has the same parameter 'classes' than its corresponding in
+desy-frontend, but that's not a rule. In addition, desy-angular allows output events,
+content projection or even other sub-components (like row and cell components for tables),
+so keep desy-angular documentation in hand to develop with this library properly.
+You can find it here:
+https://paega2.atlassian.net/wiki/spaces/AreaUsuariosIntegradores/pages/2996699584/desy-angular
 
-Give a ⭐️ if this project helped you!
 
+## Troubleshooting
+### About angular versions
+desy-angular-starter has desy-angular as dependency, which requires any angular
+version compatible with angular 11.0. If you are trying to use desy-angular in
+a project with angular 10 or angular 12, you will have compatibility issues.
 
-## 📝 License
-
-This project is [EUPL--1.2](https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12) licensed.
+### I've found a bug. How can I solve it?
+All DESY products are officially maintained by SDA Servicios Digitales de Aragón.
+If you think you've found a bug, let us know by contacting to [soportesae@aragon.es](mailto:soportesae@aragon.es)
