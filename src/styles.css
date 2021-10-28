@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   styles.css
+   ========================================================================== */
+
+/* import desy_team styles */
+@import 'desy-frontend/src/css/styles.css';
+@import 'tippy.js/dist/tippy.css';
