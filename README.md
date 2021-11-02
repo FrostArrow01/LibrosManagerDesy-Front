@@ -19,31 +19,31 @@ desy-frontend library. Both libraries are published in the npm repository:
 
 ## Get started
 1. Create a new project based on desy-angular-starter
-  * Bitbucket
-    1. Go to https://bitbucket.org/sdaragon/desy-angular-starter/
-    2. Click on the [...] icon on the top menu and select "Fork this repository"
-    3. Choose your workspace, project and name to create your new repository
-  * Github
-    1. Go to https://github.com/new and create your new repository
-    2. On the next page, click on "Import code" 
-    3. Copy the desy-angular-starter project URL 
-       ``https://bitbucket.org/sdaragon/desy-angular-starter/``
-       and paste it on the form 
-    4. Click on "Begin import"
-  * Local repository
-    1. Clone desy-angular-starter with your new project name
-       ```sh
-       git clone https://bitbucket.org/sdaragon/desy-angular-starter.git your-project-name
-       ```
+     * Bitbucket
+         1. Go to https://bitbucket.org/sdaragon/desy-angular-starter/
+         2. Click on the [...] icon on the top menu and select "Fork this repository"
+         3. Choose your workspace, project and name to create your new repository
+     * Github
+         1. Go to https://github.com/new and create your new repository
+         2. On the next page, click on "Import code" 
+         3. Copy the desy-angular-starter project URL 
+            ``https://bitbucket.org/sdaragon/desy-angular-starter/``
+            and paste it on the form 
+         4. Click on "Begin import"
+     * Local repository
+         1. Clone desy-angular-starter with your new project name
+            ```sh
+            git clone https://bitbucket.org/sdaragon/desy-angular-starter.git your-project-name
+            ```
 2. Clone it
-  * Bitbucket: ``git clone https://bitbucket.org/your-workspace/your-project.git``
-  * Github: ``git clone https://github.com/your-workspace/your-project.git``
+     * Bitbucket: ``git clone https://bitbucket.org/your-workspace/your-project.git``
+     * Github: ``git clone https://github.com/your-workspace/your-project.git``
 3. Rename all 'desy-angular-starter' occurrences by your project name using your IDE,
    or manually checking in the following files:
-  * angular.json
-  * karma.conf.js
-  * package.json
-  * index.html
+     * angular.json
+     * karma.conf.js
+     * package.json
+     * index.html
 4. Install dependencies
    ```sh
    npm install
