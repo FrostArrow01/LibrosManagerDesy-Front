@@ -17,7 +17,7 @@
     <div class="prose">
       <div class="pb-lg"></div>
       <h1 class="code-line" data-line-start=0 data-line-end=1 ><a id="desyangularstarter_0"></a>desy-angular-starter</h1>
-      <span class="has-line-data gap-sm flex" data-line-start="1" data-line-end="5"><img src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" alt="Version">
+      <span class="has-line-data gap-sm flex" data-line-start="1" data-line-end="5"><img src="https://img.shields.io/badge/version-1.1.0-blue.svg?cacheSeconds=2592000" alt="Version">
         <img src="https://img.shields.io/badge/npm-%3E%3D6.14.0-blue.svg" alt="Prerequisite">
         <img src="https://img.shields.io/badge/node-%3E%3D12.18.0-blue.svg" alt="Prerequisite">
         <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12"><img src="https://img.shields.io/badge/License-EUPL--1.2-yellow.svg" alt="License: EUPL--1.2"></a></span>
@@ -30,10 +30,10 @@
         angular webapps using design system (DESY) through desy-angular npm package.</p>
       <h2 class="code-line" data-line-start=13 data-line-end=14 ><a id="What_is_it_based_on_13"></a>What is it based on?</h2>
       <p class="has-line-data" data-line-start="14" data-line-end="16">The project is based on desy-angular library, which in turn is based on the<br>
-        desy-frontend library. Both libraries are published in the npm repository:</p>
+        desy-html library. Both libraries are published in the npm repository:</p>
       <ul>
         <li class="has-line-data" data-line-start="16" data-line-end="17"><a href="https://www.npmjs.com/package/desy-angular">desy-angular</a></li>
-        <li class="has-line-data" data-line-start="17" data-line-end="19"><a href="https://www.npmjs.com/package/desy-frontend">desy-frontend</a></li>
+        <li class="has-line-data" data-line-start="17" data-line-end="19"><a href="https://www.npmjs.com/package/desy-html">desy-html</a></li>
       </ul>
       <h2 class="code-line" data-line-start=19 data-line-end=20 ><a id="Get_started_19"></a>Get started</h2>
       <ol>
@@ -105,10 +105,10 @@
         <a href="https://paega2.atlassian.net/wiki/spaces/AreaUsuariosIntegradores/pages/2996699584/desy-angular">https://paega2.atlassian.net/wiki/spaces/AreaUsuariosIntegradores/pages/2996699584/desy-angular</a></p>
       <p class="has-line-data" data-line-start="72" data-line-end="74">In addition, there is a demo website where you can see every component in action and<br>
         modify its properties dynamically: <a href="https://desy.aragon.es/desy-angular">https://desy.aragon.es/desy-angular</a></p>
-      <h3 class="code-line" data-line-start=76 data-line-end=77 ><a id="How_to_write_a_desyfrontend_example_with_desyangular_76"></a>How to write a desy-frontend example with desy-angular?</h3>
-      <p class="has-line-data" data-line-start="77" data-line-end="80">Every component in desy-frontend has its corresponding component in desy-angular,<br>
-        so you can create very similar structures in desy-frontend than in desy-angular.<br>
-        For example, the following tooltip component from <a href="https://desy.aragon.es/examples-spinner.html">desy-frontend examples</a>:</p>
+      <h3 class="code-line" data-line-start=76 data-line-end=77 ><a id="How_to_write_a_desyhtml_example_with_desyangular_76"></a>How to write a desy-html example with desy-angular?</h3>
+      <p class="has-line-data" data-line-start="77" data-line-end="80">Every component in desy-html has its corresponding component in desy-angular,<br>
+        so you can create very similar structures in desy-html than in desy-angular.<br>
+        For example, the following tooltip component from <a href="https://desy.aragon.es/examples-spinner.html">desy-html examples</a>:</p>
       <pre><code class="has-line-data" data-line-start="81" data-line-end="86" class="language-html">{{ '{' }}% from "components/spinner/_macro.spinner.njk" import componentSpinner %"{{ '}' }}
 {{ '{{' }} componentSpinner({{ '{' }}
   "classes": "text-primary-base"
@@ -118,7 +118,7 @@
       <pre><code class="has-line-data" data-line-start="88" data-line-end="90" class="language-html"><span class="hljs-tag">&lt;<span class="hljs-title">desy-spinner</span> [<span class="hljs-attribute">classes</span>]=<span class="hljs-value">"'text-primary-base'"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">desy-spinner</span> &gt;</span>
 </code></pre>
       <p class="has-line-data" data-line-start="90" data-line-end="96">In this example, desy-angular has the same parameter ‘classes’ than its corresponding in<br>
-        desy-frontend, but that’s not a rule. In addition, desy-angular allows output events,<br>
+        desy-html, but that’s not a rule. In addition, desy-angular allows output events,<br>
         content projection or even other sub-components (like row and cell components for tables),<br>
         so keep desy-angular documentation in hand to develop with this library properly.<br>
         You can find it here:<br>

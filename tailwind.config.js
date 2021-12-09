@@ -1,5 +1,5 @@
 /* Load Desy tailwindcss config */
-const defaultConfig = require('./node_modules/desy-frontend/config/tailwind.config.js');
+const defaultConfig = require('./node_modules/desy-html/config/tailwind.config.js');
 
 module.exports = {
   /* Use the Desy default config */

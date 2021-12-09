@@ -5,5 +5,5 @@
    ========================================================================== */
 
 /* import desy_team styles */
-@import 'desy-frontend/src/css/styles.css';
+@import 'desy-html/src/css/styles.css';
 @import 'tippy.js/dist/tippy.css';
