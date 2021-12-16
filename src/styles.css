@@ -4,6 +4,6 @@
    styles.css
    ========================================================================== */
 
-/* import desy_team styles */
-@import 'desy-html/src/css/styles.css';
+/* import desy-html styles */
 @import 'tippy.js/dist/tippy.css';
+@import 'desy-html/src/css/styles.css';
