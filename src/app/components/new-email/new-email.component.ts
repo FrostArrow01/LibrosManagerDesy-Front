@@ -56,28 +56,27 @@ export class NewEmailComponent implements OnInit {
 
     if(this.enableArchivo){
       this.emailService.sendEmailArgs(this.email.to, this.email.subject, this.email.text, this.file).subscribe((result) =>{
-        this.buttonC=3;
-        
-        window.alert("El email con asunto: '"+this.email.subject+ "' ha sido enviado a '"+this.email.to+"' con éxito.");
-        window.location.reload()
-      
-      } ,(error) =>{
-        this.buttonC=1;
-        this.open = true;
-       
-      }
-      
-      );
+        if(result.success){
+          this.buttonC=3;
+          window.alert(result.message);
+          window.location.reload()
+
+        }else{
+          this.buttonC=1;
+          this.open = true;
+        }      
+      });
 
     }else{
       this.emailService.sendEmail(this.email).subscribe((result) =>{
-        this.buttonC=3;
-        window.alert("El email con asunto: '"+this.email.subject+ "' ha sido enviado a '"+this.email.to+"' con éxito.");
-        window.location.reload()
-      } ,(error) =>{
-        this.buttonC=1;
-        this.open = true;
-      
+        if(result.success){
+          this.buttonC=3;
+          window.alert(result.message);
+          window.location.reload();
+        }else{
+          this.buttonC=1;
+          this.open = true;
+        }  
       });
     }
 

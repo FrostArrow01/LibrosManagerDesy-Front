@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { Email } from "src/app/models/email";
+import { ObjectResponse } from "./backend-service";
 
 
 @Injectable({providedIn: 'root'})
@@ -10,18 +11,18 @@ export class EmailService {
 
     constructor(private http: HttpClient) { } 
 
-    public sendEmail(email: Email): Observable<Email>{
-        return this.http.post<Email>(`${this.apiServerUrl}/email/send`, email );
+    public sendEmail(email: Email): Observable<ObjectResponse<Email>>{
+        return this.http.post<ObjectResponse<Email>>(`${this.apiServerUrl}/email/send`, email );
     }
 
-    public sendEmailArgs(to: string, subject: string, text: string, file: Blob|null): Observable<string>{
+    public sendEmailArgs(to: string, subject: string, text: string, file: Blob|null): Observable<ObjectResponse<string>>{
         const formData = new FormData();
 
         file !== null
           ? formData.append('file', file)
           : formData.append('file', 'null');
         debugger
-        return this.http.post<string>(`${this.apiServerUrl}/email/sendArgs?to=${to}&subject=${subject}&text=${text}`, formData );
+        return this.http.post<ObjectResponse<string>>(`${this.apiServerUrl}/email/sendArgs?to=${to}&subject=${subject}&text=${text}`, formData );
     }
 
    
