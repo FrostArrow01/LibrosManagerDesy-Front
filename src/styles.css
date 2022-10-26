@@ -1,0 +1,12 @@
+@charset "UTF-8";
+
+/* ==========================================================================
+   styles.css
+   ========================================================================== */
+
+/* import desy-html styles */
+@import 'tippy.js/dist/tippy.css';
+@import 'desy-html/src/css/styles.css';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

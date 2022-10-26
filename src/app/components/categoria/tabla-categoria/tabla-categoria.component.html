@@ -1,0 +1,43 @@
+<div  style="margin: 1%;" >
+  <desy-button style="float: right;" [routerLink]="'/inicio/categoria/add'">Añadir una categoría</desy-button> 
+  <desy-button  (clickEvent)="borrarSeleccionados()">Borrar seleccionados</desy-button>
+  <desy-button style="margin: 10px;"  (clickEvent)="marcarTodos()">{{marcarDes}}</desy-button>
+</div>
+
+<desy-table-advanced id="table-advanced" [classes]="'min-w-full mb-base'" [hasCheckboxes]="true"
+    (recalculateTable)="handleRecalculateCompanyTable($event)" >
+    <desy-table-advanced-header> 
+      <desy-table-advanced-header-cell [hasFilter]="true"><desy-content>Id</desy-content></desy-table-advanced-header-cell>
+      <desy-table-advanced-header-cell [hasFilter]="true"><desy-content>Descripción</desy-content></desy-table-advanced-header-cell>
+      <desy-table-advanced-header-cell><desy-content>Acciones</desy-content></desy-table-advanced-header-cell> 
+    </desy-table-advanced-header>
+
+    <desy-table-advanced-row *ngFor="let categoria of pageCompanyList;index as i" [checked]="checked"  (checkedChange)="addToArray(categoria)" >
+      <desy-table-advanced-row-cell [classes]="'text-center'"> {{ categoria.id }}</desy-table-advanced-row-cell>
+      <desy-table-advanced-row-cell [classes]="'text-center'"> {{ categoria.descripcion }}</desy-table-advanced-row-cell>
+      
+      <desy-table-advanced-row-cell [classes]="'text-center'">
+
+        <div style="display: inline-block;">
+        <button [routerLink]="'/inicio/categoria/add/'+categoria.id" _ngcontent-muj-c271="">
+          <svg _ngcontent-muj-c271="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" aria-hidden="true" focusable="false" width="1em" height="1em" role="img" aria-label="Editar" class="self-center"><title _ngcontent-muj-c271="">Editar</title>
+            <path _ngcontent-muj-c271="" d="M135.57 22.29l-17.9-17.88a15.17 15.17 0 00-21.39 0L14.05 86.73a4.93 4.93 0 00-1.28 2.18L.19 133.64A5 5 0 005 140a4.84 4.84 0 001.35-.19l44.8-12.56a5.16 5.16 0 002.19-1.28l82.23-82.31a15.1 15.1 0 000-21.37z" fill="currentColor">
+        </path></svg></button>
+
+        <button (click)="borrarCategoria(categoria)" _ngcontent-muj-c271="" style="margin-left: 15px;">
+          <svg _ngcontent-muj-c271="" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" aria-hidden="true" focusable="false" width="1em" height="1em" role="img" aria-label="Editar" class="self-center"><title _ngcontent-muj-c271="">Editar</title>
+            <path _ngcontent-muj-c271="" d="M113.72 61.66A5 5 0 00110 60H30a5 5 0 00-5 5.53l7.5 70a5 5 0 005 4.47h65a5 5 0 005-4.47l7.5-70a5 5 0 00-1.28-3.87zM125 27.92h-25a2.5 2.5 0 01-2.5-2.5V17.5A17.52 17.52 0 0080 0H60a17.58 17.58 0 00-17.5 17.23l-.12 8.22a2.51 2.51 0 01-2.5 2.47H15a10 10 0 000 20h110a10 10 0 000-20zM57.5 17.46A2.51 2.51 0 0160 15h20a2.5 2.5 0 012.5 2.5v7.92a2.5 2.5 0 01-2.5 2.5H59.88a2.51 2.51 0 01-2.5-2.54z" fill="currentColor">
+        </path></svg></button>
+
+      </div>
+      </desy-table-advanced-row-cell>
+    </desy-table-advanced-row>
+</desy-table-advanced>
+
+<div style="margin: 0 auto; width: fit-content;">
+  <desy-pagination [itemsPerPage]="companyPageElems" [totalItems]="visibleCat? visibleCat.length : 0" [id]="'paginador'"
+  [(currentPage)]="currentCompanyPage" (currentPageChange)="handleCompanyPagChange($event)"></desy-pagination>
+</div>
+
+
+  

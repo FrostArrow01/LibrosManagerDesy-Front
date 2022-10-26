@@ -1,0 +1,27 @@
+<div style="border: 1px solid black;">
+    <h1 style="margin-top: 10px; ">Formulario de Autor</h1> <hr>
+    <div style="margin-left: 20%;">
+        <br>
+        <div style="float: left; margin: 10px;">
+            <desy-input (keyup)="keyPress($event)" [disabled]="!adding" placeholder="Dni" id="dni" name="dni" labelText="Dni" [(ngModel)]="autor.dni" ></desy-input>  
+            <desy-input placeholder="Nombre" id="nombre" name="nombre" labelText="Nombre" [(ngModel)]="autor.nombre" ></desy-input>  
+        </div>
+
+        <div style="float: left; margin: 10px;">
+            <desy-input placeholder="Primer apellido" id="apellido1" name="apellido1" labelText="Primer apellido" [(ngModel)]="autor.apellido1" ></desy-input>  
+            <desy-input placeholder="Segundo apellido" id="apellido2" name="apellido2" labelText="Segundo apellido" [(ngModel)]="autor.apellido2" ></desy-input>  
+
+        </div>
+
+        <div style="margin: 10px;">
+            <desy-input placeholder="Teléfono" id="telefono" name="telefono" labelText="Teléfono" [(ngModel)]="autor.telefono" ></desy-input> 
+            <desy-input placeholder="Email" id="email" name="email" labelText="Email" [(ngModel)]="autor.email" ></desy-input>   
+        </div>
+        <br>
+            <p style="color: red;">{{msgError}}</p>
+      
+            <desy-button [disabled]="isnotEnabled"  name="aceptar" style="float: left;" style="background-color: black;" (clickEvent)="guardarAutor()">Guardar</desy-button>
+            <desy-button  [routerLink]="'/inicio/autor'" >Volver</desy-button>
+       
+    </div>
+</div>

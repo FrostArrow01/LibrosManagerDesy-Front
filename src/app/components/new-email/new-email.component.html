@@ -1,0 +1,36 @@
+
+   <desy-notification style="position: fixed; margin-left: 31%; margin-top: 10%;" [id]="'notif'" [headingLevel]="3" [(isOpen)]="open" [type]="'alert'" [isDismissible]="true">
+    <desy-title [classes]="'uppercase'">Ha habido un error al enviar el archivo</desy-title>
+    <desy-icon>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 140" width="1em" height="1em" class="w-8 h-8" aria-label="Atención" focusable="false"><path d="M138.42 118.29l-55-110a15 15 0 00-26.84 0l-55 110A15 15 0 0015 140h110a15 15 0 0013.42-21.71zM62.5 50a7.5 7.5 0 0115 0v30a7.5 7.5 0 01-15 0zm7.5 70a10 10 0 1110-10 10 10 0 01-10 10z" fill="currentColor"/></svg>
+    </desy-icon> 
+  </desy-notification>
+
+    <div style="margin-left: 31%; margin-top: 2%;">
+        <legend>Nuevo Email</legend>
+        <div style="border: 1px solid black; padding: 30px; width: fit-content;display: inline-block;">
+          <div style="float: left;">
+            <desy-input id="to" name="to" labelText="Destinatario" placeholder="email@example.com" [(ngModel)]="email.to"></desy-input>
+            <desy-input id="subject" name="subject" labelText="Asunto" placeholder="..." [(ngModel)]="email.subject"></desy-input>
+          </div>
+    
+          <div style="float: left; margin-left: 20px;">
+            <desy-textarea placeholder="Escribe el texto que se mandará en el email" id="text" name="text" labelText="Cuerpo" [(ngModel)]="email.text"></desy-textarea>
+            
+            <input id="checkArch" (change)="habilitarArch()" type="checkbox">  <label for="checkArch">  Adjuntar archivo</label>
+            <br><br>
+          </div>
+            <div *ngIf="enableArchivo">
+                <desy-file-upload id="file" name="file" labelText="Archivo Adjunto" [(ngModel)]="file"></desy-file-upload>
+            </div>
+            <!-- <desy-button  name="aceptar" style="float: left;" (clickEvent)="guardarEmail()">Enviar</desy-button> -->
+            
+          <div>
+            <desy-button-loader  *ngIf="buttonC===1" state="is-loading" [classes]="''" id="send" (clickEvent)="guardarEmail($event)"  text="Enviar" ariaLabel="Prueba del componente button"></desy-button-loader> 
+            <desy-button-loader  *ngIf="buttonC===2" state="is-loading" [classes]="'c-button-loader--is-loading'" id="send" text="Enviar" ariaLabel="Prueba del componente button"></desy-button-loader>
+            <desy-button-loader  *ngIf="buttonC===3" state="is-loading" [classes]="'c-button-loader--is-success'" id="send" text="Enviar" ariaLabel="Prueba del componente button"></desy-button-loader>
+          </div>
+        </div>
+    </div>
+
+

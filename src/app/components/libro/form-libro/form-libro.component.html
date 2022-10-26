@@ -1,0 +1,38 @@
+<div style="border: 1px solid black;">
+  <h1 style="margin-top: 10px; ">Formulario de Libro</h1> <hr><br>
+  <div style="margin-left: 30%; margin-bottom: 80px;">
+
+    <div style="float: left;">
+      <desy-input placeholder="Título" id="titulo" name="titulo" labelText="Título" [(ngModel)]="libro.titulo" ></desy-input>  
+
+      <desy-input  placeholder="Edición" id="edicion" name="edicion" labelText="Edicion" [(ngModel)]="libro.edicion" ></desy-input>
+          
+      <desy-date-input id="withNgModelAndContent" [(ngModel)]="fecha" >
+          <desy-legend>Fecha de lanzamiento</desy-legend>
+          <desy-input-day [name]="'day'" [classes]="'w-14'" [maxlength]="2" >
+            <desy-label>Día</desy-label>
+          </desy-input-day>
+          <desy-input-month [name]="'month'" [classes]="'w-14'" [maxlength]="2">
+            <desy-label>Mes</desy-label>
+          </desy-input-month>
+          <desy-input-year [name]="'year'" [classes]="'w-20'" [maxlength]="4">
+            <desy-label>Año</desy-label>
+          </desy-input-year>
+      </desy-date-input>
+    </div>
+    <div>
+    <desy-select  id="autor" name="autor" [(ngModel)]="libro.autor.dni" >
+        <desy-label>Autor</desy-label>
+        <desy-option>-</desy-option>
+        <desy-option *ngFor="let autor of listAutores" [value]="autor.dni">{{autor.nombre}} {{autor.apellido1}} {{autor.apellido2}}</desy-option>
+    </desy-select> 
+
+    <desy-select  id="categoria" name="categoria" [(ngModel)]="libro.categoria.id" labelText="Categoría" [items]="listCategoriasSelect"></desy-select>
+    <desy-button  name="aceptar" style="float: left;" (clickEvent)="guardarLibro()" type="submit">Guardar</desy-button>
+    <desy-button  [routerLink]="'/inicio/libro'" >Volver</desy-button> 
+            
+  </div> 
+
+  
+  
+</div>

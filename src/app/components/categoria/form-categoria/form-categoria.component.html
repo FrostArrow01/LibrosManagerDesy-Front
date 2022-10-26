@@ -1,0 +1,13 @@
+<div style="border: 1px solid black;">
+    <h1 style="margin-top: 10px; ">Formulario de Libro</h1> <hr><br>
+    <div style="margin-left: 40%;">
+
+        <form #form="ngForm" id="login-form" class="text-left" (ngSubmit)="guardarCategoria(form.value)">
+       
+            <desy-textarea placeholder="Escribe una descripción para la categoría..." id="descripcion" name="descripcion" labelText="Descripción" [ngModel]="categoria.descripcion"></desy-textarea>
+            <p style="color: red;">{{msgError}}</p>
+            <desy-button  name="aceptar" style="float: left;" style="background-color: black;" type="submit">Guardar</desy-button>
+            <desy-button  [routerLink]="'/inicio/categoria'" >Volver</desy-button>
+        </form>
+    </div>
+</div>
