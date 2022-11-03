@@ -75,7 +75,7 @@ export class FormAutorComponent implements OnInit {
   guardarAutor(){
     if(this.autor.dni && this.autor.apellido1 && this.autor.nombre){
       if(this.adding){
-        debugger
+        
         this.autorService.addAutor(this.autor).subscribe(result =>{ 
           if(result.success){
             window.alert("El autor se ha guardado con éxito");
@@ -85,9 +85,9 @@ export class FormAutorComponent implements OnInit {
           }   
         });
       }else{
-        debugger
+        
         this.autorService.updateAutor(this.autor, this.autor.dni).subscribe(result =>{ 
-          debugger
+          
           if(result.success){
             window.alert("El autor se ha editado con éxito");
             this.router.navigate(['/inicio/autor']);
@@ -104,7 +104,7 @@ export class FormAutorComponent implements OnInit {
 
   //Evento que señala que el dni no puede estar repetido
   keyPress(event: KeyboardEvent){
-    debugger
+    
     let presente = false;
     this.msgError='';
     this.isnotEnabled=false;

@@ -52,7 +52,7 @@ export class TablaCategoriaComponent implements OnInit {
   }
 
   marcarTodos(){
-    debugger
+    
     this.checked=!this.checked;
     if(!this.checked){
       this.listLibrosExcel = [];

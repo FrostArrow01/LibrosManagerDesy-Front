@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Autor } from 'src/app/models/autor';
 import { ObjectResponse } from './backend-service';
+import { AutorSlimDto } from 'src/app/models/Dto/autorSlimDto';
 
 
 @Injectable({providedIn: 'root'})
@@ -15,6 +16,10 @@ export class AutorService {
   
   public getAutor(): Observable<ObjectResponse<Autor[]>>{
     return this.http.get<ObjectResponse<Autor[]>>(`${this.apiServerUrl}/autor/all`);
+  }
+
+  public getAutorSlimDto(): Observable<ObjectResponse<AutorSlimDto[]>>{
+    return this.http.get<ObjectResponse<AutorSlimDto[]>>(`${this.apiServerUrl}/autor/allDto`);
   }
 
   public getAutorById(autorDni: string): Observable<ObjectResponse<Autor>>{
@@ -34,7 +39,7 @@ export class AutorService {
   }
 
   public deleteMultipleAutor(autores: Autor[]): Observable<ObjectResponse<Autor>>{
-    debugger
+    
     return this.http.post<ObjectResponse<Autor>>(`${this.apiServerUrl}/autor/deleteM`, autores);
   }
 

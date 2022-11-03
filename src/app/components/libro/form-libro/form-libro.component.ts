@@ -102,7 +102,7 @@ export class FormLibroComponent implements OnInit {
           }
   
           
-          // debugger
+          
           // this.buildLibroForm();
         }else{
           console.log("Error al encontrar el libro por id");
@@ -163,7 +163,7 @@ export class FormLibroComponent implements OnInit {
     this.libro.fecha_lanzamiento = this.fecha.day+'/'+this.fecha.month+'/'+this.fecha.year;
 
     if(this.adding){
-      debugger
+      
       this.libroService.addLibro(this.libro).subscribe(result =>{ 
         if(result.success){
           window.alert("El libro se ha guardado con éxito");
@@ -173,9 +173,9 @@ export class FormLibroComponent implements OnInit {
         }   
       });
     }else{
-      debugger
+      
       this.libroService.updateLibro(this.libro, this.libro.id).subscribe(result =>{ 
-        debugger
+        
         if(result.success){
           window.alert("El libro se ha editado con éxito");
           this.router.navigate(['/inicio/libro']);
