@@ -39,7 +39,7 @@ export class LibroService {
   }
 
   public updateLibro(libro: Libro, libroId: any): Observable<ObjectResponse<Libro>>{
-    // debugger
+    
     return this.http.put<ObjectResponse<Libro>>(`${this.apiServerUrl}/libro/editar/${libroId}`, libro);
   }
 
@@ -48,7 +48,7 @@ export class LibroService {
   }
 
   public deleteMultipleLibro(libros: Libro[]): Observable<ObjectResponse<Libro>>{
-    debugger
+    
     return this.http.post<ObjectResponse<Libro>>(`${this.apiServerUrl}/libro/deleteM`, libros);
   }
 

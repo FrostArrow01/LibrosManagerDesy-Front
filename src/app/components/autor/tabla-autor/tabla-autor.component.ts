@@ -45,21 +45,29 @@ export class TablaAutorComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // this.autorService.getAutorSlimDto().subscribe(result =>{
+    //   if (result.success){
+    //     alert("exito");
+    //   } else{
+    //     let error = result.error;
+    //     console.log("Error al recoger los autores", error);
+    //     alert(error);
+    //   }
+    // });
+
     this.autorService.getAutor().subscribe(result =>{ 
       if (result.success){
         this.listAutor = result.message;
-        debugger
         this.visibleAutor = this.listAutor;
         this.pageCompanyList = this.listAutor;
       } else{
         let error = result.error;
-        console.log("Error al recoger las categorias", error);
+        console.log("Error al recoger los autores", error);
       }
     });
   }
 
   marcarTodos(){
-    debugger
     this.checked=!this.checked;
     if(!this.checked){
       this.listLibrosExcel = [];
@@ -114,24 +122,24 @@ export class TablaAutorComponent implements OnInit {
         this.listLibrosAut = result.message;
 
         var mensaje = this.listLibrosAut.length>0 
-        ? "¿Estás seguro de que quieres borrar la categoría: \n'"+autor.dni+". " + autor.nombre+"'? Esto borrara "+ this.listLibrosAut.length+ " libro(s) con esta categoría." 
+        ? "¿Estás seguro de que quieres borrar la categoría: \n'"+autor.dni+". " + autor.nombre+"'? Esto borrara "+ this.listLibrosAut.length+ " libro(s) de este autor." 
         : "¿Estás seguro de que quieres borrar la categoría: \n'"+autor.dni+". " + autor.nombre+"'?";
    
         if(confirm(mensaje)){
           if(result.success){
             this.autorService.deleteAutor(autor.dni).subscribe(result =>{
               if(result.success){
-                window.alert("Se ha borrado la categoría con exito")
+                window.alert("Se ha borrado el autor con exito")
                 window.location.reload();
               }else{
-                console.log("Error al borrar la categoria");
+                console.log("Error al borrar la autor");
               }
           });
           }
         }
            
       }else{
-        console.log("Error al encontrar los libros por categoria");
+        console.log("Error al encontrar los libros por autor");
       }
       
     });
@@ -140,7 +148,7 @@ export class TablaAutorComponent implements OnInit {
 
 
   handleRecalculateCompanyTable(recalculateParams: RecalculateTableParams): void {
-    debugger
+    
     let rows = this.listAutor;
     recalculateParams.filters.forEach(filter => {
       rows = rows.filter(row =>

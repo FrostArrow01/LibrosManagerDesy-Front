@@ -48,7 +48,7 @@ export class TablaLibroComponent implements OnInit {
   }
 
   marcarTodos(){
-    debugger
+    
     this.checked=!this.checked;
     if(!this.checked){
       this.listLibrosExcel = [];
@@ -103,16 +103,20 @@ export class TablaLibroComponent implements OnInit {
   }
 
   borrarSeleccionados(){
-    if(confirm("¿Estás seguro de que quieres borrar estos libros?")){
-    this.libroService.deleteMultipleLibro(this.listLibrosExcel).subscribe((result) =>{
-      if(result.success){
-        alert("Los libros se han eliminado correctamente");
-      window.location.reload();
-      }else{
-        alert(result.error);
-      }
-    });
-    } 
+    if(this.listLibrosExcel.length==0){
+      alert("Tienes que seleccionar algun libro.")
+    }else{
+      if(confirm("¿Estás seguro de que quieres borrar estos libros?")){
+      this.libroService.deleteMultipleLibro(this.listLibrosExcel).subscribe((result) =>{
+        if(result.success){
+          alert("Los libros se han eliminado correctamente");
+        window.location.reload();
+        }else{
+          alert(result.error);
+        }
+      });
+      } 
+    }
   }
 
 

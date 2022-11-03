@@ -34,7 +34,7 @@ export class CategoriaService {
   }
 
   public deleteMultipleCategoria(categorias: Categoria[]): Observable<ObjectResponse<Categoria>>{
-    debugger
+    
     return this.http.post<ObjectResponse<Categoria>>(`${this.apiServerUrl}/categoria/deleteM`, categorias);
   }
 

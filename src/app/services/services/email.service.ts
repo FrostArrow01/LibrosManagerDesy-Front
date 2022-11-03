@@ -21,7 +21,7 @@ export class EmailService {
         file !== null
           ? formData.append('file', file)
           : formData.append('file', 'null');
-        debugger
+        
         return this.http.post<ObjectResponse<string>>(`${this.apiServerUrl}/email/sendArgs?to=${to}&subject=${subject}&text=${text}`, formData );
     }
 

@@ -74,7 +74,7 @@ export class FormCategoriaComponent implements OnInit {
   guardarCategoria(values: Categoria){
     if(this.categoria.descripcion){
       if(this.adding){
-        debugger
+        
         this.categoriaService.addCategoria(values).subscribe(result =>{ 
           if(result.success){
             window.alert("La categoría se ha guardado con éxito");
@@ -84,9 +84,9 @@ export class FormCategoriaComponent implements OnInit {
           }   
         });
       }else{
-        debugger
+        
         this.categoriaService.updateCategoria(values, this.idCat).subscribe(result =>{ 
-          debugger
+          
           if(result.success){
             window.alert("La categoría se ha editado con éxito");
             this.router.navigate(['/inicio/categoria']);

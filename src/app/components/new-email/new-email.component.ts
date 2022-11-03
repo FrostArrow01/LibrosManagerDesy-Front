@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { Email } from 'src/app/models/email';
-import { Libro } from 'src/app/models/libro';
 import { EmailService } from 'src/app/services/services/email.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { EmailService } from 'src/app/services/services/email.service';
   styleUrls: ['./new-email.component.css']
 })
 export class NewEmailComponent implements OnInit {
-  emailForm : FormGroup;
   file: File | null = null; 
   enableArchivo: Boolean;
   email: Email;
@@ -26,11 +24,7 @@ export class NewEmailComponent implements OnInit {
       text: '',
     }
 
-    this.emailForm = this.fb.group({
-      to: [null, []],
-      subject: [null, []],
-      text: [null, []],    
-    });
+
    }
 
   ngOnInit(): void {
@@ -47,13 +41,7 @@ export class NewEmailComponent implements OnInit {
 
   guardarEmail(event: any){
     this.buttonC =2;
-    // const libroM: Email = {
-    //   to: values.to,
-    //   subject: values.subject,
-    //   text: values.text,
-    //   file: values.file
-    // }
-
+  
     if(this.enableArchivo){
       this.emailService.sendEmailArgs(this.email.to, this.email.subject, this.email.text, this.file).subscribe((result) =>{
         if(result.success){
@@ -71,13 +59,20 @@ export class NewEmailComponent implements OnInit {
       this.emailService.sendEmail(this.email).subscribe((result) =>{
         if(result.success){
           this.buttonC=3;
-          window.alert(result.message);
-          window.location.reload();
+          alert(result.message);
+          // window.location.reload();
+          this.email = {
+            to: '',
+            subject: '',
+            text: ''
+          }
+          this.buttonC=1
         }else{
           this.buttonC=1;
           this.open = true;
         }  
       });
+     
     }
 
   }
